@@ -1,20 +1,4 @@
 <?php
-/**
- * CreateSubscriptionRequest.
- *
- * PHP version 5
- *
- * @author   Stefan Neuhaus / ClouSale
- */
-
-/**
- * Selling Partner API for Notifications.
- *
- * The Selling Partner API for Notifications lets you subscribe to notifications that are relevant to a selling partner's business. Using this API you can create a destination to receive notifications, subscribe to notifications, delete notification subscriptions, and more.
- *
- * OpenAPI spec version: v1
- */
-
 namespace ClouSale\AmazonSellingPartnerAPI\Models\Notifications;
 
 use ArrayAccess;
@@ -22,14 +6,10 @@ use ClouSale\AmazonSellingPartnerAPI\Models\ModelInterface;
 use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
 
 /**
- * CreateSubscriptionRequest Class Doc Comment.
+ * AggregationSettings Class Doc Comment.
  *
-
- * @description The request schema for the createSubscription operation.
- *
- * @author   Stefan Neuhaus / ClouSale
  */
-class CreateSubscriptionRequest implements ModelInterface, ArrayAccess
+class AggregationSettings implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -38,7 +18,7 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = 'CreateSubscriptionRequest';
+    protected static $swaggerModelName = 'aggregationSettings';
 
     /**
      * Array of property to type mappings. Used for (de)serialization.
@@ -46,9 +26,7 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'payload_version' => 'string',
-        'destination_id' => 'string',
-        'processingDirective' => '\ClouSale\AmazonSellingPartnerAPI\Models\Notifications\ProcessingDirective'
+        'aggregationTimePeriod' => '\ClouSale\AmazonSellingPartnerAPI\Models\Notifications\AggregationTimePeriod',
     ];
 
     /**
@@ -57,9 +35,7 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'payload_version' => null,
-        'destination_id' => null,
-        'processingDirective' => null,
+        'aggregationTimePeriod' => null,
     ];
 
     /**
@@ -89,9 +65,7 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload_version' => 'payloadVersion',
-        'destination_id' => 'destinationId',
-        'processingDirective' => 'processingDirective',
+        'aggregationTimePeriod' => 'AggregationTimePeriod',
     ];
 
     /**
@@ -100,9 +74,7 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload_version' => 'setPayloadVersion',
-        'destination_id' => 'setDestinationId',
-        'processingDirective' => 'setProcessingDirective',
+        'aggregationTimePeriod' => 'setAggregationTimePeriod',
     ];
 
     /**
@@ -111,9 +83,7 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload_version' => 'getPayloadVersion',
-        'destination_id' => 'getDestinationId',
-        'processingDirective' => 'getProcessingDirective',
+        'aggregationTimePeriod' => 'getAggregationTimePeriod',
     ];
 
     /**
@@ -172,9 +142,7 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload_version'] = isset($data['payload_version']) ? $data['payload_version'] : null;
-        $this->container['destination_id'] = isset($data['destination_id']) ? $data['destination_id'] : null;
-        $this->container['processingDirective'] = isset($data['processingDirective']) ? $data['processingDirective'] : null;
+        $this->container['aggregationTimePeriod'] = isset($data['aggregationTimePeriod']) ? $data['aggregationTimePeriod'] : null;
     }
 
     /**
@@ -201,74 +169,25 @@ class CreateSubscriptionRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets payload_version.
+     * Gets include_complex_shipping_options.
      *
-     * @return string
+     * @return bool
      */
-    public function getPayloadVersion()
+    public function getAggregationTimePeriod()
     {
-        return $this->container['payload_version'];
+        return $this->container['aggregationTimePeriod'];
     }
 
     /**
-     * Sets payload_version.
+     * Sets include_complex_shipping_options.
      *
-     * @param string $payload_version the version of the payload object to be used in the notification
+     * @param bool $include_complex_shipping_options when true, include complex shipping options
      *
      * @return $this
      */
-    public function setPayloadVersion($payload_version)
+    public function setAggregationTimePeriod($aggregationTimePeriod)
     {
-        $this->container['payload_version'] = $payload_version;
-
-        return $this;
-    }
-
-    /**
-     * Gets destination_id.
-     *
-     * @return string
-     */
-    public function getDestinationId()
-    {
-        return $this->container['destination_id'];
-    }
-
-    /**
-     * Sets destination_id.
-     *
-     * @param string $destination_id the identifier for the destination where notifications will be delivered
-     *
-     * @return $this
-     */
-    public function setDestinationId($destination_id)
-    {
-        $this->container['destination_id'] = $destination_id;
-
-        return $this;
-    }
-
-
-    /**
-     * Gets processingDirective.
-     *
-     * @return string
-     */
-    public function getProcessingDirective()
-    {
-        return $this->container['processingDirective'];
-    }
-
-    /**
-     * Sets processingDirective.
-     *
-     * @param string $processingDirective the identifier for the destination where notifications will be delivered
-     *
-     * @return $this
-     */
-    public function setProcessingDirective($processingDirective)
-    {
-        $this->container['processingDirective'] = $processingDirective;
+        $this->container['aggregationTimePeriod'] = $aggregationTimePeriod;
 
         return $this;
     }
